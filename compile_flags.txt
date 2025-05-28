@@ -1,0 +1,7 @@
+-Wall
+-Wextra
+-Werror
+-std=c99
+-I./Lib/malloc/Source
+-I./Lib/malloc
+-I./Lib/

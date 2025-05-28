@@ -1,0 +1,15 @@
+services:
+  ft_malloc_dev:
+    build: .
+    container_name: ft_malloc_container
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    networks:
+      - malloc_net
+
+networks:
+  malloc_net:
+    driver: bridge
