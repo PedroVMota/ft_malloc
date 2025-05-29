@@ -10,6 +10,9 @@ int main() {
     printf("Int Ptr: %p\n", ptr);
     *ptr = 42;
     printf("Int Val: %d\n", *ptr);
-    
+    ptr = ft_malloc(sizeof(int) * 1024);
+
+    printf(" 2 Int Val: %d\n", *ptr);
+    debugchunks();   
     return 0;
 }

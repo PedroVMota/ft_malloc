@@ -18,39 +18,41 @@ t_chunk *check_usable(size_t size) {
 }
 
 void *big_chunk_operation(size_t _aligned){
-  t_chunk *ptr = check_usable(_aligned);
-  if (!ptr) {
-    t_chunk *chunk = (t_chunk *)alloc_heap(_aligned);
-    if (!chunk)
-      return NULL;
-    chunk->prev = NULL;
-    chunk->next = NULL;
-    chunk->size = _aligned;
-    chunk->isbeingused = 1;
-    chunk->region = (void*)( (char *)chunk + ALIGN_UP(sizeof(t_chunk)));
-
-    t_chunk *lst = heap.bchunks;
-    if(!lst){
-      heap.bchunks = chunk;
-      printf("Returning: %p\n", chunk->region);
-      return chunk->region;
+    t_chunk *ptr = check_usable(_aligned);
+    if (!ptr) {
+        // No reusable chunk found - allocate new one
+        t_chunk *chunk = (t_chunk *)alloc_heap(_aligned);
+        if (!chunk)
+            return NULL;
+        chunk->prev = NULL;
+        chunk->next = NULL;
+        chunk->size = _aligned;
+        chunk->isbeingused = 1;
+        chunk->region = (void*)((char *)chunk + ALIGN_UP(sizeof(t_chunk)));
+        
+        t_chunk *lst = heap.bchunks;
+        if(!lst){
+            heap.bchunks = chunk;
+        } else {
+            while(lst->next){
+                lst = lst->next;
+            }
+            lst->next = chunk;
+            chunk->prev = lst;
+        }
+        printf("Returning: %p\n", chunk->region);
+        return chunk->region;
+    } else {
+        // Found reusable chunk - mark it as used and return it
+        ptr->isbeingused = 1;
+        printf("Reusing: %p\n", ptr->region);
+        return ptr->region;
     }
-    while(lst->next){
-      lst = lst->next;
-    }
-    lst->next = chunk;
-    chunk->prev = lst;
-    printf("Returning: %p\n", chunk->region);
-    return chunk->region;
-  }
-  return NULL;
 }
 
 
 void *ft_malloc(size_t size){
     (void)size;
-
-
     size_t user = ALIGN_UP(ALIGN_UP(size) + ALIGN_UP(sizeof(t_chunk)));
     printf("%lu\n", user);
     if(user <= MAX_BIN_SIZE){
@@ -68,3 +70,23 @@ void *ft_malloc(size_t size){
         return big_chunk_operation(user);
     }
 }
+
+
+void debugchunks(){
+  t_chunk *ptr = heap.bchunks;
+  if(!ptr)
+    return;
+  int chunk = 0;
+
+  while(ptr){
+    printf("Chunk %d | %lu\n", chunk, (size_t)ptr);
+    printf("\tSize: %lu\n", ptr->size);
+    printf("\tIs being used %d\n", ptr->isbeingused);
+    printf("\tNext: %lu\n",(size_t) ptr->next);
+    printf("\tPrev: %lu\n",(size_t) ptr->prev);
+    printf("\tUser ptr: %lu\n", (size_t)ptr->region);
+    chunk++;
+    ptr = ptr->next;
+  }
+}
+
