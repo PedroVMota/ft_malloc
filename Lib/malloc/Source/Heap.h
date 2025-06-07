@@ -45,7 +45,6 @@ static const size_t bin_sizes[NUM_BINS] = {
 
 typedef struct pool_t{
   t_chunk *chunks;
-  void *beg;
   size_t maxsize;
   size_t availsize;
 } t_pool;
@@ -62,7 +61,13 @@ typedef struct heap_t{
 } t_heap;
 
 
-static t_heap heap;
+static t_heap heap = {
+    .bins = {{0}},      // Initialize all bins to zero
+    .bchunks = NULL,
+    .totalalloc = 0,
+    .totalfrees = 0, 
+    .peakusage = 0
+};
 
 void *alloc_heap(size_t size);
 

@@ -50,21 +50,26 @@ void *big_chunk_operation(size_t _aligned){
     }
 }
 
+void *alloc_small(size_t size, t_pool **bin, size_t binsize);
+
 
 void *ft_malloc(size_t size){
+    printf("Arch Type sizeof(void *) * sizeof(void *) = %lu\n", sizeof(void *) * sizeof(void *));
     (void)size;
     size_t user = ALIGN_UP(ALIGN_UP(size) + ALIGN_UP(sizeof(t_chunk)));
     printf("%lu\n", user);
     if(user <= MAX_BIN_SIZE){
     size_t bin = bin_sizes[0];
+    t_pool **binheap = NULL;
       for (int i = 0; i < NUM_BINS; i++) {
         if (user <= bin_sizes[i]) {
           bin = bin_sizes[i];
+          binheap = &(heap.bins[i]);
           break;
         }
       };
-        printf("Small Chunk %lu\n", bin);
-        return NULL;
+      printf("Bin Selection: %lu | %p\n", bin, *binheap);
+      return alloc_small(user, binheap, bin);
     }else{
         printf("Large chunk %lu\n", user);
         return big_chunk_operation(user);

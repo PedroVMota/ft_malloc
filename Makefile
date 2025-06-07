@@ -33,6 +33,11 @@ endif
 
 
 all: debug
+	@echo ""
+	@echo ""
+	@echo "====== EXECUTION ===== "
+	./$(TARGET)
+
 MLIB: 
 	$(MAKE) -C Lib/malloc
 
