@@ -46,6 +46,6 @@ static t_heap heap = {
     .peakusage = 0};
 
 void *alloc_heap(size_t size);
-void *alloc_small(size_t size, t_pool *bin, size_t binsize);
+void *alloc_small(size_t binsize, int binselection);
 
 #endif

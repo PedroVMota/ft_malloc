@@ -54,15 +54,17 @@ void *ft_malloc(size_t size) {
     if (user <= MAX_BIN_SIZE) {
         size_t bin = bin_sizes[0];
         t_pool binheap;
+        int binselection  = -1;
         for (int i = 0; i < NUM_BINS; i++) {
             
             if (user <= bin_sizes[i]) {
                 bin = bin_sizes[i];
+                binselection = i;
                 binheap = (heap.bins[i]);
                 break;
             }
         }
-        return alloc_small(user, &binheap, bin);
+        return alloc_small(bin, binselection);
     } else {
         return big_chunk_operation(user);
     }

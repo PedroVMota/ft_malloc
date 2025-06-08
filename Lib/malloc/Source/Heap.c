@@ -46,10 +46,11 @@ t_chunk *newlst(size_t binsize) {
 
 
 
-void *alloc_small(size_t size, t_pool *bin, size_t binsize){    
-    printf("Total Size allocated: %lu\n", (bin)->maxsize);
-    printf("Available memory: %lu\n", (bin)->availsize);
-    t_chunk *slot = bin->chunks;
+void *alloc_small(size_t binsize, int binselection){
+    
+    printf("Total Size allocated: %lu\n", (heap.bins[binselection]).maxsize);
+    printf("Available memory: %lu\n", (heap.bins[binselection]).availsize);
+    t_chunk *slot = (heap.bins[binselection]).chunks;
     while(slot){
         printf("\t[SEARCH] -> Analizing this %p\n", slot);
         if(!slot->isbeingused)
@@ -61,12 +62,12 @@ void *alloc_small(size_t size, t_pool *bin, size_t binsize){
         printf("[REQUESTIONS] -> Requesting binsize * 1024\n");
         t_chunk *nlst = newlst(binsize);
         if(!nlst){
-            printf("New List is null\n");
+            printf("[ERROR] mmap returned NULL\n");
             return NULL;
         }
-        bin->maxsize += (binsize * 1024);
-        bin->availsize += (binsize * 1024);
-        slot = bin->chunks;
+        (heap.bins[binselection]).maxsize += (binsize * 1024);
+        (heap.bins[binselection]).availsize += (binsize * 1024);
+        slot = (heap.bins[binselection]).chunks;
         if(slot){
             while(slot->next)
                 slot = slot->next;
@@ -74,13 +75,13 @@ void *alloc_small(size_t size, t_pool *bin, size_t binsize){
             nlst->prev = nlst;
         }
         else{
-            bin->chunks = nlst;
+            (heap.bins[binselection]).chunks = nlst;
         }
-        printf("[REQUEST] Calling the recursive \n");
-        return alloc_small(size, bin, binsize);
+        printf("[RECURSIVE]\n");
+        return alloc_small(binsize, binselection);
     }
 
     slot->isbeingused = 1;
-    bin->availsize -= binsize;
+    (heap.bins[binselection]).availsize -= binsize;
     return (slot + sizeof(t_chunk));
 }

@@ -35,18 +35,17 @@ int main() {
     ptr->first_name = "Test";
     ptr->id_number = 1231231231231231;
     ptr->last_name = "Test";
-    show(ptr);
-
-
-
+    
     struct Person *sptr = ft_malloc(sizeof(struct Person) * 1);
      if(!sptr){
         printf("Second Person was not allocated!\n");
         return 0;
     }
-    ptr->age = 3001231890;
-    ptr->first_name = "Second";
-    ptr->id_number = 1231231231231231;
-    ptr->last_name = "Person";
+    sptr->age = 3001231890;
+    sptr->first_name = "Second";
+    sptr->id_number = 1231231231231231;
+    sptr->last_name = "Person";
+    show(ptr);
+    show(sptr);
     return 0;
 }
