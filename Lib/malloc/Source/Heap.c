@@ -9,7 +9,8 @@ void *alloc_heap(size_t size){
 
 t_chunk *newlst(size_t binsize) {
     // Calculate total size needed for each chunk (header + aligned data)
-    size_t chunk_total_size = ALIGN_UP(sizeof(t_chunk)) + ALIGN_UP(binsize);
+    // size_t chunk_total_size = ALIGN_UP(sizeof(t_chunk)) + ALIGN_UP(binsize);
+    size_t chunk_total_size = binsize;
     
     // Calculate total memory needed for 1024 chunks
     size_t total_memory = chunk_total_size * 1024;

@@ -1,5 +1,12 @@
 {
     "files.associations": {
-        "chunk.h": "c"
+        "chunk.h": "c",
+        "stddef.h": "c",
+        "mman.h": "c",
+        "string.h": "c",
+        "heavyperson.h": "c",
+        "time.h": "c",
+        "stdlib.h": "c",
+        "ft_malloc.h": "c"
     },
 }

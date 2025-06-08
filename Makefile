@@ -4,7 +4,7 @@ CFLAGS_BASE = -Wall -Wextra -Werror
 CFLAGS_DEBUG = $(CFLAGS_BASE) -g -O0 -DDEBUG
 CFLAGS_RELEASE = $(CFLAGS_BASE) -O2 -DNDEBUG
 
-INC := -I./Lib/
+INC := -I./Lib/ -I./Source
 
 SRCDIR = Source
 OBJDIR = Obj
