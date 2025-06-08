@@ -1,6 +1,16 @@
 #include "Heap.h"
 #include <stdio.h>
 
+
+
+t_heap heap = {
+    .bins = {{0}},
+    .bchunks = NULL,
+    .totalalloc = 0,
+    .totalfrees = 0,
+    .peakusage = 0
+};
+
 void *alloc_heap(size_t size){
     return mmap(NULL, size,PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1,0);    
 }
@@ -86,5 +96,5 @@ void *alloc_small(size_t binsize, int binselection){
 
     slot->isbeingused = 1;
     (heap.bins[binselection]).availsize -= binsize;
-    return (slot + sizeof(t_chunk));
+    return slot->region;
 }

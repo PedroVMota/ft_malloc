@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <sys/mman.h>
 
+
+
+
+
 t_chunk *check_usable(size_t size) {
   t_chunk *chunks = heap.bchunks;
   while (chunks) {

@@ -11,6 +11,9 @@
 #define MAX_BIN_SIZE 512
 #define NUM_BINS 6
 
+
+
+
 static const size_t bin_sizes[NUM_BINS] = {
     16,
     32,
@@ -38,12 +41,7 @@ typedef struct heap_t
 
 } t_heap;
 
-static t_heap heap = {
-    .bins = {{0}},
-    .bchunks = NULL,
-    .totalalloc = 0,
-    .totalfrees = 0,
-    .peakusage = 0};
+extern t_heap heap;
 
 void *alloc_heap(size_t size);
 void *alloc_small(size_t binsize, int binselection);

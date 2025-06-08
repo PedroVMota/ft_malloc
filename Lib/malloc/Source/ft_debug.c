@@ -18,11 +18,11 @@ void debug_chunk(t_chunk *ptr){
 
 void check_bins(){
     for (int i = 0; i < NUM_BINS; i++){
-        printf("\tSelecting bin: %d\n", bin_sizes[i]);
+        printf("\tSelecting bin: %zu\n", bin_sizes[i]);  // Use %zu for size_t
         t_chunk *bin = heap.bins[i].chunks;
-        printf("\tAvailable: %d\n", heap.bins[i].availsize);
+        printf("\tAvailable: %zu\n", heap.bins[i].availsize);  // Use %zu for size_t
         while(bin){
-            if(!bin->isbeingused)
+            if(bin->isbeingused)
                 debug_chunk(bin);
             bin = bin->next;
         }
