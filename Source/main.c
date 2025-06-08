@@ -1,7 +1,10 @@
 #include <ft_malloc.h>
 #include <HeavyPerson.h>
 
-int main() {
+#include <stdlib.h>
+
+
+int test_big_memory() {
     struct HeavyPeople people = {NULL, 0, 0};
     
     printf("Creating memory-heavy data structure demo...\n");
@@ -29,7 +32,6 @@ int main() {
         print_person_summary(found);
     }
 
-    ft_debug();
     
     // Delete one person
     delete_person_by_id(&people, 1001);
@@ -37,42 +39,43 @@ int main() {
     
     // Clean up all memory
     delete_all_people(&people);
-    
     return 0;
 }
 
-#include <stdlib.h>
 
+void ft(){
+    int *size = ft_malloc(sizeof(int));
+    if(!size)
+        return;
+    *size = 42;
+    printf("Before free: %d\n", *size);
+    ft_free(size);
+    printf("after free: %d\n", *size);
+    int newval = 1241;
+    *size = newval;
+    printf("Assing %d to var after free: %d\n", newval, *size);
+}
 
-// void ft(){
-//     int *size = ft_malloc(sizeof(int));
-//     if(!size)
-//         return;
-//     *size = 42;
-//     printf("Before free: %d\n", *size);
-//     ft_free(size);
-//     printf("after free: %d\n", *size);
-//     int newval = 1241;
-//     *size = newval;
-//     printf("Assing %d to var after free: %d\n", newval, *size);
-// }
+void ml(){
+    int *size = malloc(sizeof(int));
+    if(!size)
+        return;
+    *size = 42;
+    printf("Before free: %d\n", *size);
+    free(size);
+    printf("after free: %d\n", *size);
+    *size = 42;
+    int newval = 1241;
+    *size = newval;
+    printf("Assing %d to var after free: %d\n", newval, *size);
+}
 
-// void ml(){
-//     int *size = malloc(sizeof(int));
-//     if(!size)
-//         return;
-//     *size = 42;
-//     printf("Before free: %d\n", *size);
-//     free(size);
-//     printf("after free: %d\n", *size);
-//     *size = 42;
-//     int newval = 1241;
-//     *size = newval;
-//     printf("Assing %d to var after free: %d\n", newval, *size);
-// }
+int main(void){
+    ft();
+    printf("\n ========== \n");
+    ml();
+    printf("\n ============ \n");
+    test_big_memory();
+    ft_debug();
 
-// int main(void){
-//     ft();
-//     printf("\n ========== \n");
-//     ml();
-// }
+}

@@ -28,11 +28,13 @@ void *big_chunk_operation(size_t _aligned){
         t_chunk *chunk = (t_chunk *)alloc_heap(_aligned);
         if (!chunk)
             return NULL;
+        chunk->magic = CHUNK_MAGIC;
         chunk->prev = NULL;
         chunk->next = NULL;
         chunk->size = _aligned;
         chunk->isbeingused = 1;
         chunk->region = (void*)((char *)chunk + ALIGN_UP(sizeof(t_chunk)));
+        chunk->end_magic = CHUNK_MAGIC;
         
         t_chunk *lst = heap.bchunks;
         if(!lst){
