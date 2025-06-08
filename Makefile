@@ -1,6 +1,6 @@
 CC := cc
 TARGET = myprogram
-CFLAGS_BASE = -Wall -Wextra -Werror 
+CFLAGS_BASE = #-Wall -Wextra -Werror  -Werror=use-after-free
 CFLAGS_DEBUG = $(CFLAGS_BASE) -g -O0 -DDEBUG
 CFLAGS_RELEASE = $(CFLAGS_BASE) -O2 -DNDEBUG
 

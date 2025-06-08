@@ -31,7 +31,7 @@ t_chunk *newlst(size_t binsize) {
         new_chunk->isbeingused = 0; // Mark as free
         new_chunk->next = NULL;
         new_chunk->prev = NULL;
-        new_chunk->region = current_addr + ALIGN_UP(sizeof(t_chunk));
+        new_chunk->region = (char *)current_addr + ALIGN_UP(sizeof(t_chunk));
         if (!head) {
             head = new_chunk;
             current = head;
