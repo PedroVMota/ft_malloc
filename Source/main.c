@@ -50,8 +50,8 @@ int main(void){
     msg[2] = 'A';
     
     msg[4] = '\0';
-
-    printf("[BEFORE FREE] %s\n", msg);
+    printf("[BEFORE FREE] %s\n\n", msg);
+    ft_debug();
     ft_free(msg);
     printf("[AFTER FREE] %s\n", msg);
     msg[2] = 'E';

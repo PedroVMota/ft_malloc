@@ -6,12 +6,7 @@
 #include <sys/mman.h>
 
 
-#include "Chunk.h"
-#include "Core.h" 
-#include "Heap.h"
-#include <stddef.h>
-#include <stdio.h>
-#include <sys/mman.h>
+
 
 // Helper function to find which bin a chunk belongs to
 int find_bin_for_size(size_t size) {
@@ -37,16 +32,25 @@ t_chunk *get_chunk_from_ptr(void *ptr) {
 int is_valid_chunk(t_chunk *chunk) {
     if (!chunk) return 0;
     
-    // Basic sanity checks
-    if (chunk->size == 0) return 0;
-    if (chunk->size > (1024 * 1024 * 1024)) return 0; // Reasonable upper limit
+    // Check magic number
+    if (chunk->magic != CHUNK_MAGIC) {
+        printf("Invalid magic: expected 0x%X, got 0x%X\n", CHUNK_MAGIC, chunk->magic);
+        return 0;
+    }
     
-    // Check if region pointer makes sense
-    char *expected_region = (char *)chunk + ALIGN_UP(sizeof(t_chunk));
-    if (chunk->region != expected_region) return 0;
+    // Check end magic (if you're using it)
+    if (chunk->end_magic != CHUNK_MAGIC) {
+        printf("End magic corrupted: expected 0x%X, got 0x%X\n", CHUNK_MAGIC, chunk->end_magic);
+        return 0;
+    }
+    
+    // Other validation...
+    if (chunk->size == 0) return 0;
+    if (chunk->size > (1024 * 1024 * 1024)) return 0;
     
     return 1;
 }
+
 
 void ft_free(void *ptr) {
     if (!ptr) {

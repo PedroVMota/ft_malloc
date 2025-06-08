@@ -27,11 +27,13 @@ t_chunk *newlst(size_t binsize) {
     char *current_addr = (char *)memory_block;
     for (int i = 0; i < 1024; i++) {
         t_chunk *new_chunk = (t_chunk *)current_addr;
-        new_chunk->size = binsize;  // Store the data size (not total size)
-        new_chunk->isbeingused = 0; // Mark as free
+        new_chunk->magic = CHUNK_MAGIC;          // Set magic
+        new_chunk->size = binsize;
+        new_chunk->isbeingused = 0;
         new_chunk->next = NULL;
         new_chunk->prev = NULL;
         new_chunk->region = (char *)current_addr + ALIGN_UP(sizeof(t_chunk));
+        new_chunk->end_magic = CHUNK_MAGIC;      // Optional end magic
         if (!head) {
             head = new_chunk;
             current = head;
