@@ -1,22 +1,41 @@
 #include "Chunk.h"
 
-// Implementation for Chunk
-//
-//
-//
-/*
- * addr it will be the heap point that will be used to store the chunk (header of the heap) + plus the requested memory.
- * _ofsset it will be the starting point where the user can use to store the variables values;
- * nbytes is a security in order to no exceed the memory byte
-*/
-void *mapchunk(void **addr, void **_offset, size_t nbytes){
-    if (sizeof(t_chunk) >= nbytes)
+typedef t_chunk *t_chunkptr;
+
+t_chunk *lastnode(t_chunkptr lst)
+{
+    while (lst->next)
+        lst = lst->next;
+    return (t_chunk *)lst;
+}
+
+t_chunk *available(t_chunkptr lst)
+{
+    while (lst->next)
+    {
+        if (!lst->isbeingused)
+            return (t_chunk *)lst;
+        lst = lst->next;
+    }
+    return NULL;
+}
+
+
+t_chunk *convert_voidptr_to_chunk_with_size(void *addr, size_t data_size) {
+    if (!addr)
         return NULL;
-    t_chunk *ptr = (t_chunk *)(*addr);
-    ptr->size = nbytes;  // nbytes is the data size for this chunk
-    ptr->next = NULL;
-    ptr->prev = NULL;
-    ptr->region = (char *)(*addr) + sizeof(t_chunk);
-    *_offset = ptr->region;
-    return ((*addr) + nbytes);
+    
+    // Cast the memory address to a chunk pointer
+    t_chunk *chunk = (t_chunk *)addr;
+    
+    // Initialize the chunk structure at this memory location
+    chunk->size = data_size;   // Set the data size
+    chunk->isbeingused = 0;    // Initially free
+    chunk->next = NULL;        // No next chunk initially
+    chunk->prev = NULL;        // No previous chunk initially
+    
+    // Set the region pointer to after the chunk header
+    chunk->region = (char *)addr + ALIGN_UP(sizeof(t_chunk));
+    
+    return chunk;
 }

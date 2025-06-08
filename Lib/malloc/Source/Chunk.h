@@ -2,23 +2,23 @@
 #define CHUNK_H
 #include <stddef.h>
 #include <stdint.h>
+#include <Macros.h>
 
+#define CHUNK_ALLOCATED 0x1
+#define PREV_FREE 0x2
 
+typedef struct chunk_t
+{
 
-#define CHUNK_ALLOCATED  0x1   // Bit 0: chunk is allocated
-#define PREV_FREE       0x2   // Bit 1: previous chunk is free 
-
-
-typedef struct chunk_t{
-  //Header Part
-  size_t size; 
+  size_t size;
   uint8_t isbeingused;
   struct chunk_t *next;
-  struct chunk_t *prev;  // Fixed the typo here
-  //Address part
+  struct chunk_t *prev;
   void *region;
 } t_chunk;
 
-void *mapchunk(void **addr, void **offset, size_t nbytes);
+t_chunk *lastnode(t_chunk *lst);
+t_chunk *available(t_chunk *lst);
+t_chunk *convert_voidptr_to_chunk(void *ptr);
 
 #endif
