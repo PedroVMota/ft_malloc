@@ -8,6 +8,7 @@
         "time.h": "c",
         "stdlib.h": "c",
         "ft_malloc.h": "c",
-        "core.h": "c"
+        "core.h": "c",
+        "macros.h": "c"
     },
 }

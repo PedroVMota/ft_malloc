@@ -41,33 +41,33 @@
 
 #include <stdlib.h>
 
+
+void ft(){
+    int *size = ft_malloc(sizeof(int));
+    if(!size)
+        return;
+    *size = 42;
+    printf("Before free: %d\n", *size);
+    ft_free(size);
+    printf("after free: %d\n", *size);
+    *size = 42;
+    printf("Assing 42 to var after free: %d\n", *size);
+}
+
+void ml(){
+    int *size = malloc(sizeof(int));
+    if(!size)
+        return;
+    *size = 42;
+    printf("Before free: %d\n", *size);
+    free(size);
+    printf("after free: %d\n", *size);
+    *size = 42;
+    printf("Assing 42 to var after free: %d\n", *size);
+}
+
 int main(void){
-
-    printf("FT_MALLOC EXAMPLE: ");
-    char *msg = ft_malloc(sizeof(char) * 4);
-    msg[0] = 'O';
-    msg[1] = 'L';
-    msg[2] = 'A';
-    
-    msg[4] = '\0';
-    printf("[BEFORE FREE] %s\n\n", msg);
-    ft_debug();
-    ft_free(msg);
-    printf("[AFTER FREE] %s\n", msg);
-    msg[2] = 'E';
-    printf("[AFTER FREE] changing one char: %s\n", msg);
-
-
-    printf("\n\nMALLOC EXAMPLE: \n");
-    msg = malloc(sizeof(char) * 4);
-    msg[0] = 'O';
-    msg[1] = 'L';
-    msg[2] = 'A';
-    msg[4] = '\0';
-    printf("[BEFORE FREE] %s\n", msg);
-    free(msg);
-    printf("[AFTER FREE] %s\n", msg);
-    msg[2] = 'E';
-    printf("[AFTER FREE] changing one char: %s\n", msg);
-
+    ft();
+    printf("\n ========== \n");
+    ml();
 }

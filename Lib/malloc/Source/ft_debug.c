@@ -14,6 +14,7 @@ void debug_chunk(t_chunk *ptr){
     printf("\t\tNext: %p\n", ptr->next);
     printf("\t\tPrev: %p\n", ptr->prev);
     printf("\t\tRegion: %p\n", ptr->region);
+    printf("\t\tIs being used: %d\n", ptr->isbeingused);
 }
 
 void check_bins(){

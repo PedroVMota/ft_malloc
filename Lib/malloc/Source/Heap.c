@@ -24,12 +24,11 @@ t_chunk *newlst(size_t binsize) {
     
     // Calculate total memory needed for 1024 chunks
     size_t total_memory = chunk_total_size * 1024;
-    printf("[REQUESTING] >> Requesting %zu bytes for %zu chunks of size %zu\n", 
-           total_memory, (size_t)1024, binsize);
+    //printf("[REQUESTING] >> Requesting %zu bytes for %zu chunks of size %zu\n", total_memory, (size_t)1024, binsize);
     // Allocate the large memory block
     void *memory_block = alloc_heap(total_memory);
     if (!memory_block) {
-        printf("[ERROR] Failed to allocate memory block\n");
+        //printf("[ERROR] Failed to allocate memory block\n");
         return NULL;
     }
     t_chunk *head = NULL;
@@ -60,22 +59,22 @@ t_chunk *newlst(size_t binsize) {
 
 
 void *alloc_small(size_t binsize, int binselection){
-    
-    printf("Total Size allocated: %lu\n", (heap.bins[binselection]).maxsize);
-    printf("Available memory: %lu\n", (heap.bins[binselection]).availsize);
+    //printf("Bin Size: %lu\n", binsize);
+    //printf("Total Size allocated: %lu\n", (heap.bins[binselection]).maxsize);
+    //printf("Available memory: %lu\n", (heap.bins[binselection]).availsize);
     t_chunk *slot = (heap.bins[binselection]).chunks;
     while(slot){
-        printf("\t[SEARCH] -> Analizing this %p\n", slot);
+        //printf("\t[SEARCH] -> Analizing this %p\n", slot);
         if(!slot->isbeingused)
             break;
         slot = slot->next;
     }
 
     if(!slot){
-        printf("[REQUESTIONS] -> Requesting binsize * 1024\n");
+        //printf("[REQUESTIONS] -> Requesting binsize * 1024\n");
         t_chunk *nlst = newlst(binsize);
         if(!nlst){
-            printf("[ERROR] mmap returned NULL\n");
+            //printf("[ERROR] mmap returned NULL\n");
             return NULL;
         }
         (heap.bins[binselection]).maxsize += (binsize * 1024);
@@ -85,12 +84,12 @@ void *alloc_small(size_t binsize, int binselection){
             while(slot->next)
                 slot = slot->next;
             slot->next = nlst;
-            nlst->prev = nlst;
+            nlst->prev = slot;
         }
         else{
             (heap.bins[binselection]).chunks = nlst;
         }
-        printf("[RECURSIVE]\n");
+        //printf("[RECURSIVE]\n");
         return alloc_small(binsize, binselection);
     }
 
