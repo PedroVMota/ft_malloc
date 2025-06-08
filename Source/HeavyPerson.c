@@ -237,6 +237,7 @@ void delete_all_people(struct HeavyPeople *people) {
     people->lst = NULL;
     people->population = 0;
     people->total_memory_used = 0;
+
     printf("All people deleted and memory ft_freed.\n");
 }
 
