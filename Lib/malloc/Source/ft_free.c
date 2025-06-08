@@ -94,7 +94,7 @@ void ft_free(void *ptr) {
         int bin_index = find_bin_for_size(total_size);
         //printf("Bin index: %d\n", bin_index);
         if (bin_index >= 0) {
-            //printf("Freeing small chunk to bin %d (size %zu)\n", bin_index, bin_sizes[bin_index]);
+            printf("Freeing small chunk to bin %d (size %zu)\n", bin_index, bin_sizes[bin_index]);
             chunk->isbeingused = 0;
             heap.bins[bin_index].availsize += bin_sizes[bin_index];
             heap.totalfrees++;

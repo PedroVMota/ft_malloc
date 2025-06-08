@@ -1,0 +1,286 @@
+	Selecting bin: 16
+	Selecting bin: 32
+	Selecting bin: 64
+	Selecting bin: 128
+		Chunk[0]: 0x79628a127000
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a1270c0
+			Prev: (nil)
+			Region: 0x79628a127040
+			Is being used: 1
+		Chunk[1]: 0x79628a1270c0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127180
+			Prev: 0x79628a127000
+			Region: 0x79628a127100
+			Is being used: 1
+		Chunk[2]: 0x79628a127180
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127240
+			Prev: 0x79628a1270c0
+			Region: 0x79628a1271c0
+			Is being used: 1
+		Chunk[3]: 0x79628a127240
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127300
+			Prev: 0x79628a127180
+			Region: 0x79628a127280
+			Is being used: 1
+		Chunk[4]: 0x79628a127300
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a1273c0
+			Prev: 0x79628a127240
+			Region: 0x79628a127340
+			Is being used: 1
+		Chunk[5]: 0x79628a1273c0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127480
+			Prev: 0x79628a127300
+			Region: 0x79628a127400
+			Is being used: 1
+		Chunk[6]: 0x79628a127480
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127540
+			Prev: 0x79628a1273c0
+			Region: 0x79628a1274c0
+			Is being used: 1
+		Chunk[7]: 0x79628a127540
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127600
+			Prev: 0x79628a127480
+			Region: 0x79628a127580
+			Is being used: 1
+		Chunk[8]: 0x79628a127600
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a1276c0
+			Prev: 0x79628a127540
+			Region: 0x79628a127640
+			Is being used: 1
+		Chunk[9]: 0x79628a1276c0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127780
+			Prev: 0x79628a127600
+			Region: 0x79628a127700
+			Is being used: 1
+		Chunk[10]: 0x79628a127780
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127840
+			Prev: 0x79628a1276c0
+			Region: 0x79628a1277c0
+			Is being used: 1
+		Chunk[11]: 0x79628a127840
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127900
+			Prev: 0x79628a127780
+			Region: 0x79628a127880
+			Is being used: 1
+		Chunk[12]: 0x79628a127900
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a1279c0
+			Prev: 0x79628a127840
+			Region: 0x79628a127940
+			Is being used: 1
+		Chunk[13]: 0x79628a1279c0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127a80
+			Prev: 0x79628a127900
+			Region: 0x79628a127a00
+			Is being used: 1
+		Chunk[14]: 0x79628a127a80
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127b40
+			Prev: 0x79628a1279c0
+			Region: 0x79628a127ac0
+			Is being used: 1
+		Chunk[15]: 0x79628a127b40
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127c00
+			Prev: 0x79628a127a80
+			Region: 0x79628a127b80
+			Is being used: 1
+		Chunk[16]: 0x79628a127c00
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127cc0
+			Prev: 0x79628a127b40
+			Region: 0x79628a127c40
+			Is being used: 1
+		Chunk[17]: 0x79628a127cc0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127d80
+			Prev: 0x79628a127c00
+			Region: 0x79628a127d00
+			Is being used: 1
+		Chunk[18]: 0x79628a127d80
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127e40
+			Prev: 0x79628a127cc0
+			Region: 0x79628a127dc0
+			Is being used: 1
+		Chunk[19]: 0x79628a127e40
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127f00
+			Prev: 0x79628a127d80
+			Region: 0x79628a127e80
+			Is being used: 1
+		Chunk[20]: 0x79628a127f00
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a127fc0
+			Prev: 0x79628a127e40
+			Region: 0x79628a127f40
+			Is being used: 1
+		Chunk[21]: 0x79628a127fc0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a128080
+			Prev: 0x79628a127f00
+			Region: 0x79628a128000
+			Is being used: 1
+		Chunk[22]: 0x79628a128080
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a128140
+			Prev: 0x79628a127fc0
+			Region: 0x79628a1280c0
+			Is being used: 1
+		Chunk[23]: 0x79628a128140
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a128200
+			Prev: 0x79628a128080
+			Region: 0x79628a128180
+			Is being used: 1
+		Chunk[24]: 0x79628a128200
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a1282c0
+			Prev: 0x79628a128140
+			Region: 0x79628a128240
+			Is being used: 1
+		Chunk[25]: 0x79628a1282c0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a128380
+			Prev: 0x79628a128200
+			Region: 0x79628a128300
+			Is being used: 1
+		Chunk[26]: 0x79628a128380
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a128440
+			Prev: 0x79628a1282c0
+			Region: 0x79628a1283c0
+			Is being used: 1
+		Chunk[27]: 0x79628a128440
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a128500
+			Prev: 0x79628a128380
+			Region: 0x79628a128480
+			Is being used: 1
+		Chunk[28]: 0x79628a128500
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a1285c0
+			Prev: 0x79628a128440
+			Region: 0x79628a128540
+			Is being used: 1
+		Chunk[29]: 0x79628a1285c0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 128
+			Next: 0x79628a128680
+			Prev: 0x79628a128500
+			Region: 0x79628a128600
+			Is being used: 1
+	Selecting bin: 256
+		Chunk[0]: 0x79628a157000
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 256
+			Next: 0x79628a157140
+			Prev: (nil)
+			Region: 0x79628a157040
+			Is being used: 1
+		Chunk[1]: 0x79628a157140
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 256
+			Next: 0x79628a157280
+			Prev: 0x79628a157000
+			Region: 0x79628a157180
+			Is being used: 1
+		Chunk[2]: 0x79628a157280
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 256
+			Next: 0x79628a1573c0
+			Prev: 0x79628a157140
+			Region: 0x79628a1572c0
+			Is being used: 1
+		Chunk[3]: 0x79628a1573c0
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 256
+			Next: 0x79628a157500
+			Prev: 0x79628a157280
+			Region: 0x79628a157400
+			Is being used: 1
+		Chunk[4]: 0x79628a157500
+			Magic: DEADBEEF
+			End magic: DEADBEEF
+			Size: 256
+			Next: 0x79628a157640
+			Prev: 0x79628a1573c0
+			Region: 0x79628a157540
+			Is being used: 1
+	Selecting bin: 512

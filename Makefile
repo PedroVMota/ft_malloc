@@ -39,7 +39,7 @@ all: debug
 	./$(TARGET)
 
 MLIB: 
-	$(MAKE) -C Lib/malloc
+	$(MAKE) -C ./Lib/malloc BUILD_TYPE=$(BUILD_TYPE)
 
 
 debug: MLIB $(TARGET)
