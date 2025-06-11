@@ -53,9 +53,17 @@ void *big_chunk_operation(size_t _aligned){
     }
 }
 
-
+#include <unistd.h>
 // Updated ft_malloc with debugging
-void *ft_malloc(size_t size) {
+
+
+__attribute__((constructor))
+static void library_loaded(void) {
+    write(2, "*** LIBRARY LOADED ***\n", 24);
+}
+
+void *malloc(size_t size) {
+    write(1, "*** CUSTOM MALLOC CALLED ***\n", 30);
     size_t user = ALIGN_UP(ALIGN_UP(size) + ALIGN_UP(sizeof(t_chunk)));
     if (user <= MAX_BIN_SIZE) {
         size_t bin = bin_sizes[0];

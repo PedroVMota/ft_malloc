@@ -55,8 +55,9 @@ int is_valid_chunk(t_chunk *chunk) {
 
 void debug_chunk(t_chunk *ptr);
 
-
-void ft_free(void *ptr) {
+#include <unistd.h>
+void free(void *ptr) {
+write(2, "*** CUSTOM FREE CALLED ***\n", 28);
     if (!ptr) {
         return;
     }
