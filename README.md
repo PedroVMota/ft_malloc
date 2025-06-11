@@ -1,16 +1,16 @@
 # ft_malloc - Custom Memory Allocator
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/yourusername/ft_malloc)
-[![C Standard](https://img.shields.io/badge/C-C99-blue.svg)](https://en.wikipedia.org/wiki/C99)
+<!-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) -->
+<!-- [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/yourusername/ft_malloc) -->
+<!-- [![C Standard](https://img.shields.io/badge/C-C99-blue.svg)](https://en.wikipedia.org/wiki/C99) -->
 
 A high-performance, thread-safe custom memory allocator implementation with debugging capabilities and memory leak detection.
 
-## ☕ Support the Project
-
-If this project helps you, consider buying me a coffee!
-
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/yourusername)
+<!-- ## ☕ Support the Project -->
+<!---->
+<!-- If this project helps you, consider buying me a coffee! -->
+<!---->
+<!-- [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/yourusername) -->
 
 ---
 
@@ -74,7 +74,7 @@ If this project helps you, consider buying me a coffee!
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ft_malloc.git
+git clone https://github.com/PedroVMota/ft_malloc.git
 cd ft_malloc
 
 # Build the library
